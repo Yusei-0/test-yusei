@@ -1,1 +1,527 @@
-/* You can add global styles to this file, and also import other style files */
+/* ========================================
+   SISTEMA DE DISEÑO - Democracia Participativa
+   Arquitectura de Estilos Moderna
+   ======================================== */
+
+/* ----------------------------------------
+   1. VARIABLES Y CONFIGURACIÓN
+   ---------------------------------------- */
+
+// Paleta de Colores
+$color-primary: #2563eb;
+$color-primary-dark: #1d4ed8;
+$color-primary-light: #3b82f6;
+$color-primary-50: #eff6ff;
+$color-primary-100: #dbeafe;
+$color-primary-200: #bfdbfe;
+
+$color-secondary: #7c3aed;
+$color-secondary-dark: #6d28d9;
+$color-secondary-light: #8b5cf6;
+
+$color-success: #10b981;
+$color-success-dark: #059669;
+$color-success-light: #34d399;
+$color-success-bg: #ecfdf5;
+
+$color-warning: #f59e0b;
+$color-warning-dark: #d97706;
+$color-warning-light: #fbbf24;
+$color-warning-bg: #fffbeb;
+
+$color-danger: #ef4444;
+$color-danger-dark: #dc2626;
+$color-danger-light: #f87171;
+$color-danger-bg: #fef2f2;
+
+$color-gray-50: #f9fafb;
+$color-gray-100: #f3f4f6;
+$color-gray-200: #e5e7eb;
+$color-gray-300: #d1d5db;
+$color-gray-400: #9ca3af;
+$color-gray-500: #6b7280;
+$color-gray-600: #4b5563;
+$color-gray-700: #374151;
+$color-gray-800: #1f2937;
+
+$color-white: #ffffff;
+
+// Tipografía
+$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 1.875rem;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-normal: 1.5;
+
+// Spacing
+$spacing-1: 0.25rem;
+$spacing-2: 0.5rem;
+$spacing-3: 0.75rem;
+$spacing-4: 1rem;
+$spacing-5: 1.25rem;
+$spacing-6: 1.5rem;
+$spacing-8: 2rem;
+
+// Border Radius
+$radius-sm: 0.25rem;
+$radius-md: 0.375rem;
+$radius-lg: 0.5rem;
+$radius-xl: 0.75rem;
+$radius-2xl: 1rem;
+$radius-full: 9999px;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-normal: 200ms ease;
+$transition-slow: 300ms ease;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+
+/* ----------------------------------------
+   2. RESET Y BASE
+   ---------------------------------------- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $color-gray-800;
+  background-color: $color-gray-50;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: color $transition-fast;
+  &:hover { color: $color-primary-dark; }
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* ----------------------------------------
+   3. UTILIDADES
+   ---------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-4;
+  @media (min-width: $breakpoint-md) { padding: 0 $spacing-6; }
+  @media (min-width: $breakpoint-lg) { padding: 0 $spacing-8; }
+}
+
+.text-center { text-align: center; }
+.font-bold { font-weight: $font-weight-bold; }
+.font-semibold { font-weight: $font-weight-semibold; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-4 { gap: $spacing-4; }
+
+.shadow-md { box-shadow: $shadow-md; }
+.shadow-lg { box-shadow: $shadow-lg; }
+
+.rounded-lg { border-radius: $radius-lg; }
+.rounded-xl { border-radius: $radius-xl; }
+.rounded-2xl { border-radius: $radius-2xl; }
+
+.p-4 { padding: $spacing-4; }
+.p-6 { padding: $spacing-6; }
+.p-8 { padding: $spacing-8; }
+.mt-4 { margin-top: $spacing-4; }
+.mt-6 { margin-top: $spacing-6; }
+.mb-4 { margin-bottom: $spacing-4; }
+.mb-6 { margin-bottom: $spacing-6; }
+
+/* ----------------------------------------
+   4. COMPONENTES REUTILIZABLES
+   ---------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-2;
+  padding: $spacing-3 $spacing-6;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  border: 2px solid transparent;
+  border-radius: $radius-lg;
+  transition: all $transition-normal;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.btn-primary {
+  background-color: $color-primary;
+  color: $color-white;
+  &:not(:disabled):hover {
+    background-color: $color-primary-dark;
+  }
+}
+
+.btn-secondary {
+  background-color: $color-secondary;
+  color: $color-white;
+  &:not(:disabled):hover {
+    background-color: $color-secondary-dark;
+  }
+}
+
+.btn-success {
+  background-color: $color-success;
+  color: $color-white;
+  &:not(:disabled):hover {
+    background-color: $color-success-dark;
+  }
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: $color-primary;
+  border-color: $color-primary;
+  &:not(:disabled):hover {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+}
+
+.btn-sm {
+  padding: $spacing-2 $spacing-4;
+  font-size: $font-size-sm;
+}
+
+.btn-lg {
+  padding: $spacing-4 $spacing-8;
+  font-size: $font-size-lg;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: $spacing-3 $spacing-4;
+  font-size: $font-size-base;
+  color: $color-gray-800;
+  background-color: $color-white;
+  border: 2px solid $color-gray-200;
+  border-radius: $radius-lg;
+  transition: all $transition-fast;
+
+  &::placeholder {
+    color: $color-gray-400;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px $color-primary-100;
+  }
+
+  &:disabled {
+    background-color: $color-gray-100;
+    cursor: not-allowed;
+  }
+}
+
+.input-label {
+  display: block;
+  margin-bottom: $spacing-2;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-gray-700;
+}
+
+.select {
+  @extend .input;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacing-3 center;
+  background-size: 1.25em;
+  padding-right: $spacing-10;
+}
+
+.file-input {
+  display: block;
+  width: 100%;
+  padding: $spacing-3;
+  border: 2px dashed $color-gray-300;
+  border-radius: $radius-lg;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $color-primary;
+    background-color: $color-primary-50;
+  }
+}
+
+.card {
+  background-color: $color-white;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+  transition: all $transition-normal;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+  }
+}
+
+.card-header {
+  padding: $spacing-6;
+  border-bottom: 1px solid $color-gray-100;
+}
+
+.card-body {
+  padding: $spacing-6;
+}
+
+.card-footer {
+  padding: $spacing-6;
+  border-top: 1px solid $color-gray-100;
+  background-color: $color-gray-50;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-1 $spacing-3;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  border-radius: $radius-full;
+
+  &.badge-primary {
+    background-color: $color-primary-100;
+    color: $color-primary-dark;
+  }
+
+  &.badge-success {
+    background-color: $color-success-bg;
+    color: $color-success-dark;
+  }
+
+  &.badge-warning {
+    background-color: $color-warning-bg;
+    color: $color-warning-dark;
+  }
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-md;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: $color-white;
+
+  thead {
+    background-color: $color-gray-50;
+    th {
+      padding: $spacing-4 $spacing-6;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-semibold;
+      color: $color-gray-600;
+      text-transform: uppercase;
+      text-align: left;
+      border-bottom: 2px solid $color-gray-200;
+    }
+  }
+
+  tbody {
+    tr {
+      transition: background-color $transition-fast;
+      &:nth-child(even) {
+        background-color: $color-gray-50;
+      }
+      &:hover {
+        background-color: $color-primary-50;
+      }
+      td {
+        padding: $spacing-4 $spacing-6;
+        font-size: $font-size-sm;
+        color: $color-gray-800;
+        border-bottom: 1px solid $color-gray-100;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.alert {
+  padding: $spacing-4;
+  border-radius: $radius-lg;
+  margin-bottom: $spacing-4;
+
+  &.alert-success {
+    background-color: $color-success-bg;
+    color: $color-success-dark;
+    border: 1px solid $color-success-light;
+  }
+
+  &.alert-warning {
+    background-color: $color-warning-bg;
+    color: $color-warning-dark;
+    border: 1px solid $color-warning-light;
+  }
+
+  &.alert-danger {
+    background-color: $color-danger-bg;
+    color: $color-danger-dark;
+    border: 1px solid $color-danger-light;
+  }
+
+  &.alert-info {
+    background-color: $color-primary-50;
+    color: $color-primary-dark;
+    border: 1px solid $color-primary-200;
+  }
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-full;
+  overflow: hidden;
+  background-color: $color-gray-200;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &.avatar-sm { width: 32px; height: 32px; }
+  &.avatar-lg { width: 56px; height: 56px; }
+}
+
+/* ----------------------------------------
+   5. ANIMACIONES
+   ---------------------------------------- */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn $transition-slow ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp $transition-slow ease-out;
+}
+
+/* ----------------------------------------
+   6. RESPONSIVE
+   ---------------------------------------- */
+
+@media (max-width: $breakpoint-sm) {
+  html { font-size: 14px; }
+}
+
+@media (max-width: $breakpoint-md) {
+  .hide-mobile { display: none !important; }
+}
+
+/* ----------------------------------------
+   7. ACCESIBILIDAD
+   ---------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
